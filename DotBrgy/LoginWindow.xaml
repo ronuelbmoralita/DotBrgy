@@ -1,0 +1,89 @@
+﻿<Window x:Class="DotBrgy.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DotBrgy"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{x:Null}" 
+         AllowsTransparency="True"
+         FontFamily="consolas" 
+        Height="550" 
+        Width="350" 
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" 
+        Loaded="Window_Loaded">
+    <Grid>
+        <Border BorderThickness="1" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Height="30" Margin="5">
+            <Button x:Name="exit" Foreground="Black" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0" Click="Exit_Click">
+                <materialDesign:PackIcon Kind="Close" Width="15" Height="15"/>
+                <Button.ToolTip>
+                    <ToolTip Content="Close Window"/>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Visibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50">
+            <Image ToolTip="DotBrgy" Stretch="Fill" Height="100" Margin="0"  Width="100" Source="Assets/dotbrgy.ico"/>
+            <!--<TextBlock Text="DotBrgy" FontSize="25" Margin="0" HorizontalAlignment="Center"/>-->
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" Height="auto">
+            <!--<materialDesign:Card Margin="20" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto"/>-->
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" Width="auto" Margin="20" Height="auto">
+                    <TextBlock Name="count" Text="timer" Visibility="Collapsed" HorizontalAlignment="Center"/>
+                    <StackPanel Margin="10">
+                    <TextBox x:Name="userName" 
+                             FocusManager.FocusedElement= "{Binding ElementName= userName}"         
+                                      HorizontalAlignment="Center"
+                                      materialDesign:TextFieldAssist.HasClearButton="True"
+                                      Width="250"  
+                                      BorderThickness="1" 
+                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                      FontSize="15" 
+                                      Height="auto"
+                                    TextChanged="userName_TextChanged">
+                        <materialDesign:HintAssist.Hint>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="User" Width="auto" Height="auto" VerticalAlignment="Center"/>
+                                <TextBlock Text="Username" FontSize="15"/>
+                            </StackPanel>
+                        </materialDesign:HintAssist.Hint>
+                    </TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="10">
+                    <PasswordBox x:Name="userPassword"        
+                                      HorizontalAlignment="Center"
+                                      materialDesign:TextFieldAssist.HasClearButton="True"
+                                      Width="250"  
+                                      BorderThickness="1" 
+                                      Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                      FontSize="15" 
+                                      Height="auto">
+                        <materialDesign:HintAssist.Hint>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="User" Width="auto" Height="auto" VerticalAlignment="Center"/>
+                                <TextBlock Text="Password" FontSize="15"/>
+                            </StackPanel>
+                        </materialDesign:HintAssist.Hint>
+                    </PasswordBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"> 
+                        <RadioButton Margin="15" Name="login_checkboxAdmin" Content="Administrator" VerticalContentAlignment="Center" Height="auto" Width="auto"/>
+                        <RadioButton Margin="15" Name="login_checkboxStandard" Content="Standard" VerticalContentAlignment="Center" Height="auto" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel  Width="100" VerticalAlignment="Bottom">
+                        <Button Name="login_button" materialDesign:ButtonAssist.CornerRadius="10" VerticalAlignment="Center" FontSize="20" Width="auto" Height="auto" Content="Login" Click="Login_button_Click"/>
+                    </StackPanel>
+                </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
