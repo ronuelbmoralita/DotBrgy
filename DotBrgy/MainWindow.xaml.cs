@@ -1024,10 +1024,10 @@ namespace DotBrgy
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            dbData.Background = System.Windows.Media.Brushes.AliceBlue;
             Clear(this);
             DisplayData();
             DisplayCode();
+            /*
             if (uploadImage.Source != null)
             {
                 LocalWebCam.Stop();
@@ -1037,6 +1037,7 @@ namespace DotBrgy
                 stopCamera.Visibility = Visibility.Collapsed;
                 startCamera.Visibility = Visibility.Visible;
             }
+            */
         }
 
         //
@@ -1648,26 +1649,22 @@ namespace DotBrgy
         private void resCodeRadio_Checked(object sender, RoutedEventArgs e)
         {
             DataView dv = dbData.ItemsSource as DataView;
-            dv.RowFilter = "Convert(residentCode, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable                                                                                                           
-            dbData.Background = (System.Windows.Media.Brush)new BrushConverter().ConvertFrom("#65ffa0");
+            dv.RowFilter = "Convert(residentCode, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable
         }
         private void brgyIDradio_Checked(object sender, RoutedEventArgs e)
         {
             DataView dv = dbData.ItemsSource as DataView;
-            dv.RowFilter = "Convert(brgyID, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable                                                                                                 
-            dbData.Background = (System.Windows.Media.Brush)new BrushConverter().ConvertFrom("#65ffa0");
+            dv.RowFilter = "Convert(brgyID, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable
         }
         private void ageRadio_Checked(object sender, RoutedEventArgs e)
         {
             DataView dv = dbData.ItemsSource as DataView;
-            dv.RowFilter = "Convert(age, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable     
-            dbData.Background = (System.Windows.Media.Brush)new BrushConverter().ConvertFrom("#65ffa0");
+            dv.RowFilter = "Convert(age, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable   
         }
         private void houseNumberRadio_Checked(object sender, RoutedEventArgs e)
         {
             DataView dv = dbData.ItemsSource as DataView;
             dv.RowFilter = "Convert(houseNumber, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable
-            dbData.Background = (System.Windows.Media.Brush)new BrushConverter().ConvertFrom("#65ffa0");
         }
 
         private void transType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -2154,8 +2151,7 @@ namespace DotBrgy
             else
             {
                 DataView dv = dbData.ItemsSource as DataView;
-                dv.RowFilter = "Convert(age, 'System.String') >= '" + int.Parse(lowest.Text.ToString()) + "' and  Convert(age, 'System.String') <= '" + int.Parse(highest.Text.ToString()) + "'"; //where n is a column name of the DataTable                                                                                                           
-                dbData.Background = (System.Windows.Media.Brush)new BrushConverter().ConvertFrom("#65ffa0");
+                dv.RowFilter = "Convert(age, 'System.String') >= '" + int.Parse(lowest.Text.ToString()) + "' and  Convert(age, 'System.String') <= '" + int.Parse(highest.Text.ToString()) + "'"; //where n is a column name of the DataTable 
             }
         }
     }
