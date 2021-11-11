@@ -7,7 +7,6 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
-         TextElement.FontSize="10"
          TextOptions.TextFormattingMode="Ideal"
          TextOptions.TextRenderingMode="Auto"
          Background="{x:Null}" 
@@ -38,15 +37,15 @@
         </Storyboard>
 
 
-        <!--openHistory-->
+        <!--openRight-->
 
-        <Storyboard x:Key="openHistory">
+        <Storyboard x:Key="openRight">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="History">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-650"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="closeHistory">
+        <Storyboard x:Key="closeRight">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="History">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-650"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
@@ -63,13 +62,13 @@
             <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource closeLeft}"/>
         </EventTrigger>
 
-        <!--openHistory-->
+        <!--openRight-->
 
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="openHistory">
-            <BeginStoryboard Storyboard="{StaticResource openHistory}"/>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="openRight">
+            <BeginStoryboard Storyboard="{StaticResource openRight}"/>
         </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="closeHistory">
-            <BeginStoryboard x:Name="CloseMenuBeginStory" Storyboard="{StaticResource closeHistory}"/>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="closeRight">
+            <BeginStoryboard x:Name="CloseMenuBeginStory" Storyboard="{StaticResource closeRight}"/>
         </EventTrigger>
     </Window.Triggers>
 
@@ -213,10 +212,11 @@
 
             <!--Main Menu-->
         <Grid>
-            <Border BorderThickness="1" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20"/>
-            <!--<materialDesign:Card UniformCornerRadius="0.1" Height="30" VerticalAlignment="Top"  Background="#484848"/>-->
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">
-                <Button x:Name="openLeft" 
+            <Grid x:Name="Main">
+                <Border BorderThickness="1" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20"/>
+                <!--<materialDesign:Card UniformCornerRadius="0.1" Height="30" VerticalAlignment="Top"  Background="#484848"/>-->
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">
+                    <Button x:Name="openLeft" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Background="{x:Null}" 
@@ -226,23 +226,23 @@
                         Padding="0" 
                         Margin="0"
                         ToolTip="Menu"
-                        Foreground="Black">
-                    <materialDesign:PackIcon Kind="Menu"/>
-                </Button>
-            </StackPanel>
+                        Foreground="Black" Click="openLeft_Click">
+                        <materialDesign:PackIcon Kind="Menu"/>
+                    </Button>
+                </StackPanel>
 
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5" ToolTip="Home">
-                <materialDesign:PackIcon Width="30" Foreground="#65ffa0" Height="30" Kind="Home" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Margin="5">
-                <!--
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5" ToolTip="Home">
+                    <materialDesign:PackIcon Width="30" Foreground="#65ffa0" Height="30" Kind="Home" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Margin="5">
+                    <!--
                 <materialDesign:Card Background="#65ffa0" ToolTip="Total" UniformCornerRadius="10" Visibility="Visible" Width="50" Height="auto">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <materialDesign:PackIcon Width="20" Height="20" Kind="Home" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
                 </materialDesign:Card>
                 -->
-                <Button x:Name="ButtoGoAdmin"
+                    <Button x:Name="ButtoGoAdmin"
                             Visibility="Collapsed"
                             Width="30" 
                             Height="30" 
@@ -253,7 +253,7 @@
                             Click="ButtoGoAdmin_Click">
                         <materialDesign:PackIcon Kind="Spy"/>
                     </Button>
-                    <Button x:Name="openHistory" 
+                    <Button x:Name="openRight" 
                             Visibility="Visible"
                             Padding="0"
                             Width="30" 
@@ -261,8 +261,8 @@
                             Background="{x:Null}" 
                             BorderBrush="{x:Null}"
                             ToolTip="KonTra - Contact Tracer"
-                            Foreground="Black">
-                        <materialDesign:PackIcon Kind="Virus" Foreground="Salmon"/>
+                            Foreground="Black" Click="openRight_Click">
+                        <materialDesign:PackIcon Kind="Virus" Foreground="#65ffa0"/>
                     </Button>
                     <Button x:Name="Minimize"  
                             Padding="0"
@@ -303,9 +303,9 @@
                     </Button>
                 </StackPanel>
 
-            <!--dockpanel start here-->
-            <DockPanel Margin="0,30,0,0">
-                <!--
+                <!--dockpanel start here-->
+                <DockPanel Margin="0,30,0,0">
+                    <!--
                 <DockPanel.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#f36767" Offset="0.0"    />
@@ -313,223 +313,202 @@
                     </LinearGradientBrush>
                 </DockPanel.Background>
                 -->
-                <!--left one-->
-                <Border CornerRadius="20">
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel DockPanel.Dock="Left" Width="200">
-                            <Grid Margin="0" Height="auto">
-                                <!--<materialDesign:Card Width="auto" Height="auto"/>   -->
-                                <!--
+                    <!--left one-->
+                    <Border CornerRadius="20">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel DockPanel.Dock="Left" Width="200">
+                                <Grid Margin="0" Height="auto">
+                                    <!--<materialDesign:Card Width="auto" Height="auto"/>   -->
+                                    <!--
                         <Grid Width="35" ToolTip="Personal information" Height="30" Background="#FFFFAF24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0">
                             <materialDesign:PackIcon Kind="PersonDetails" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="30" Height="30"/>
                         </Grid>
                         -->
-                                <StackPanel Margin="10" Height="auto">
-                                    <TextBox Name="houseNumber" 
+                                    <StackPanel Margin="10" Height="auto">
+                                        <TextBox Name="houseNumber" 
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      materialDesign:HintAssist.Hint="House Number"  
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                    <TextBox Name="brgyID" 
+                                        <TextBox Name="brgyID" 
                                      Height="auto"
                                      materialDesign:HintAssist.Hint="Brgy ID" 
                                      Margin="5" 
-                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     FontSize="12" 
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                    <TextBox Name="firstname" 
+                                        <TextBox Name="firstname" 
                                      materialDesign:HintAssist.Hint="Firstname" 
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                    <TextBox Name="middlename" 
+                                        <TextBox Name="middlename" 
                                      materialDesign:HintAssist.Hint="Middlename" 
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"  
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto"  
                                      BorderThickness="1"/>
-                                    <TextBox Name="lastname" 
+                                        <TextBox Name="lastname" 
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      materialDesign:HintAssist.Hint="Lastname"  
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                    <ComboBox Name="Sex" 
+                                        <ComboBox Name="Sex" 
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Sex"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <DatePicker Name="Birthdate"  
+                                        <DatePicker Name="Birthdate"  
                                      Margin="5" 
                                      materialDesign:HintAssist.Hint="Birthdate" 
                                      Style="{StaticResource MaterialDesignOutlinedDatePicker}"  
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                    <TextBox Name="birthPlace" 
+                                        <TextBox Name="birthPlace" 
                                      TextWrapping="Wrap" 
                                      Margin="5" 
                                      materialDesign:HintAssist.Hint="Birth Place" 
-                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"  
-                                     FontSize="12" 
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                    <ComboBox Name="CivilStatus" 
+                                        <ComboBox Name="CivilStatus" 
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Civil Status"  
-                                      FontSize="12" 
+                                      materialDesign:HintAssist.Hint="Civil Status"
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <ComboBox Name="purok"
+                                        <ComboBox Name="purok"
                                       IsEditable="True"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Purok"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <ComboBox Name="educationAttainment"
+                                        <ComboBox Name="educationAttainment"
                                       IsEditable="True"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Education Attainment"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                </StackPanel>
-                            </Grid>
-                            <TextBox Visibility="Hidden" Name="trackId" Height="auto" Width="auto" TextChanged="TrackId_TextChanged"/>
-                            <TextBox Visibility="Hidden" Name="age" Height="auto" Width="auto" TextChanged="TrackId_TextChanged"/>
-                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                                <TextBox Visibility="Hidden" Name="trackId" Height="auto" Width="auto" TextChanged="TrackId_TextChanged"/>
+                                <TextBox Visibility="Hidden" Name="age" Height="auto" Width="auto" TextChanged="TrackId_TextChanged"/>
+                            </StackPanel>
 
-                        <!--left two-->
-                        <StackPanel DockPanel.Dock="Left" Width="200">
-                            <Grid Margin="0" Height="auto">
-                                <!--<materialDesign:Card Width="auto" Height="auto"/>   -->
-                                <!--
+                            <!--left two-->
+                            <StackPanel DockPanel.Dock="Left" Width="200">
+                                <Grid Margin="0" Height="auto">
+                                    <!--<materialDesign:Card Width="auto" Height="auto"/>   -->
+                                    <!--
                         <Grid Width="35" ToolTip="Personal information" Height="30" Background="#FFFFAF24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0">
                             <materialDesign:PackIcon Kind="PersonDetails" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="30" Height="30"/>
                         </Grid>
                         -->
-                                <StackPanel Margin="10" Height="auto">
-                                    <TextBox Name="philHealth"
+                                    <StackPanel Margin="10" Height="auto">
+                                        <TextBox Name="philHealth"
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      materialDesign:HintAssist.Hint="Philhealth"  
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                    <ComboBox Name="registeredVoter"
+                                        <ComboBox Name="registeredVoter"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Registered Voter"  
-                                      FontSize="12" 
+                                      materialDesign:HintAssist.Hint="Registered Voter"
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <ComboBox Name="occupation"
+                                        <ComboBox Name="occupation"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Occupation"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <TextBox Name="familyPlanning"
+                                        <TextBox Name="familyPlanning"
                                      Height="auto"
                                      materialDesign:HintAssist.Hint="Family Planning" 
                                      Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     FontSize="12" 
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                    <ComboBox Name="faucet"
+                                        <ComboBox Name="faucet"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Faucet"  
-                                      FontSize="12" 
+                                      materialDesign:HintAssist.Hint="Faucet" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <ComboBox Name="comfortRoom"
+                                        <ComboBox Name="comfortRoom"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Comfort Room"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <ComboBox Name="seniorID"
+                                        <ComboBox Name="seniorID"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Senior ID"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <ComboBox Name="pwd"
+                                        <ComboBox Name="pwd"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="PWD"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <ComboBox Name="indigenousPeople"
+                                        <ComboBox Name="indigenousPeople"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Indigenous People"  
-                                      FontSize="12" 
+                                      materialDesign:HintAssist.Hint="Indigenous People"
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
-                                    <TextBox Name="membership"
+                                        <TextBox Name="membership"
                                      materialDesign:HintAssist.Hint="Membership" 
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
-                                </StackPanel>
-                            </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </Border>
+                    </Border>
 
 
 
 
-                <!--right two-->
-                <StackPanel Name="disableButtons" DockPanel.Dock="Right" Width="100" Height="auto" Margin="0">
-                    <Grid VerticalAlignment="Top">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical"/>
-                        <StackPanel>
-                            <!--
+                    <!--right two-->
+                    <StackPanel Name="disableButtons" DockPanel.Dock="Right" Width="100" Height="auto" Margin="0">
+                        <Grid VerticalAlignment="Top">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical"/>
+                            <StackPanel>
+                                <!--
                              Style="{DynamicResource MaterialDesignFloatingActionButton}"
                              -->
-                            <Button Name="saveData"
+                                <Button Name="saveData"
                                     Padding="0"
                                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                                     Margin="20"
@@ -538,9 +517,9 @@
                                     RenderTransformOrigin="0.5,0.5"
                                     Click="SaveData_Click"
                                     ToolTip="Save">
-                                <materialDesign:PackIcon Kind="ContentSave" Width="30" Height="30"/>
-                            </Button>
-                            <Button Name="edit"
+                                    <materialDesign:PackIcon Kind="ContentSave" Width="30" Height="30"/>
+                                </Button>
+                                <Button Name="edit"
                                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                                     Padding="0"
                                     Margin="20"
@@ -548,10 +527,10 @@
                                     Height="50"   
                                     ToolTip="Edit" 
                                     Click="Edit_Click">
-                                <materialDesign:PackIcon Kind="Pencil" Width="30" Height="30"/>
-                            </Button>
+                                    <materialDesign:PackIcon Kind="Pencil" Width="30" Height="30"/>
+                                </Button>
 
-                            <Button Name="refresh"
+                                <Button Name="refresh"
                                     Click="Refresh_Click"  
                                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                                     Padding="0"
@@ -559,10 +538,10 @@
                                     Width="50" 
                                     Height="50" 
                                     ToolTip="Refresh">
-                                <materialDesign:PackIcon Kind="Refresh" Width="30" Height="30"/>
-                            </Button>
+                                    <materialDesign:PackIcon Kind="Refresh" Width="30" Height="30"/>
+                                </Button>
 
-                            <Button Name="delete"
+                                <Button Name="delete"
                                     Visibility="Collapsed"
                                     Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
                                     Padding="0"
@@ -573,9 +552,9 @@
                                     RenderTransformOrigin="0.5,0.5"
                                     Background="Salmon"
                                     BorderBrush="Salmon" Click="Delete_Click">
-                                <materialDesign:PackIcon Kind="Delete" Width="30" Height="30"/>
-                            </Button>
-                            <materialDesign:PopupBox 
+                                    <materialDesign:PackIcon Kind="Delete" Width="30" Height="30"/>
+                                </Button>
+                                <materialDesign:PopupBox 
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center"
                                 Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
@@ -584,11 +563,11 @@
                                 Margin="20" 
                                 PlacementMode="BottomAndAlignCentres" 
                                 StaysOpen="True">
-                                <materialDesign:PopupBox.ToggleContent>
-                                    <materialDesign:PackIcon Kind="Printer" Width="30" Height="30"/>
-                                </materialDesign:PopupBox.ToggleContent>
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <RadioButton Name="printAll" 
+                                    <materialDesign:PopupBox.ToggleContent>
+                                        <materialDesign:PackIcon Kind="Printer" Width="30" Height="30"/>
+                                    </materialDesign:PopupBox.ToggleContent>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <RadioButton Name="printAll" 
                                      HorizontalAlignment="Center"
                                      VerticalAlignment="Center"
                                      Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
@@ -596,7 +575,7 @@
                                      Content="Print all"
                                      ToolTip="Print all data"
                                      Click="printAll_Click"/>
-                                    <RadioButton 
+                                        <RadioButton 
                                             Name="printDocs"
                                             Visibility="Collapsed"
                                             HorizontalAlignment="Center"
@@ -606,7 +585,7 @@
                                             Content="Print Doc"
                                             ToolTip="Print Document"
                                             Click="printDocs_Click" />
-                                    <RadioButton
+                                        <RadioButton
                                             Name="printID"
                                             Visibility="Collapsed"
                                             HorizontalAlignment="Center"
@@ -616,29 +595,29 @@
                                             Content="Print ID"
                                             ToolTip="Print Barangay ID"
                                             Click="printID_Click" />
-                                </StackPanel>
-                            </materialDesign:PopupBox>
-                            
-                            <StackPanel Visibility="Hidden">
-                                <TextBlock x:Name="daysLeft" Text="DAY"  FontWeight="Bold"  FontSize="15"  HorizontalAlignment="Center"/>
-                                <TextBlock x:Name="trialLeft" Text="Left" FontWeight="Bold" Foreground="Salmon" FontSize="25"  HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
+                                    </StackPanel>
+                                </materialDesign:PopupBox>
 
-                <!--right one-->
-                <StackPanel DockPanel.Dock="Right" Width="250">
-                    <Grid Margin="20,20,20,0" Height="auto" Width="auto">
-                        <materialDesign:Card UniformCornerRadius="10" Width="auto" Height="auto" VerticalAlignment="Top">
-                            <StackPanel Margin="10" Height="auto">
-                                <Image Margin="0" Name="qrImage" Height="150"/>
-                                <TextBox FontWeight="UltraBold" BorderThickness="0" Text="Transaction code" FontSize="15" Name="code" Width="auto" HorizontalAlignment="Center"/>
+                                <StackPanel Visibility="Hidden">
+                                    <TextBlock x:Name="daysLeft" Text="DAY"  FontWeight="Bold"  FontSize="15"  HorizontalAlignment="Center"/>
+                                    <TextBlock x:Name="trialLeft" Text="Left" FontWeight="Bold" Foreground="Salmon" FontSize="25"  HorizontalAlignment="Center"/>
+                                </StackPanel>
                             </StackPanel>
-                        </materialDesign:Card>
-                    </Grid>
-                    <StackPanel>
-                        <ComboBox Name="transType"
+                        </Grid>
+                    </StackPanel>
+
+                    <!--right one-->
+                    <StackPanel DockPanel.Dock="Right" Width="250">
+                        <Grid Margin="20,20,20,0" Height="auto" Width="auto">
+                            <materialDesign:Card UniformCornerRadius="10" Width="auto" Height="auto" VerticalAlignment="Top">
+                                <StackPanel Margin="10" Height="auto">
+                                    <Image Margin="0" Name="qrImage" Height="150"/>
+                                    <TextBox FontWeight="UltraBold" BorderThickness="0" Text="Transaction code" FontSize="15" Name="code" Width="auto" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                        <StackPanel>
+                            <ComboBox Name="transType"
                                   Style="{StaticResource MaterialDesignFilledComboBox}"
                                   Visibility="Collapsed"
                                   IsEditable="True"
@@ -649,21 +628,20 @@
                                   Width="auto" 
                                   BorderThickness="1" 
                                   SelectionChanged="transType_SelectionChanged"/>
-                        <TextBox Name="businessName" 
+                            <TextBox Name="businessName" 
                                  Visibility="Collapsed"  
                                  TextWrapping="Wrap" 
                                  Margin="20,20,20,0"
                                  materialDesign:HintAssist.Hint="Business Name" 
-                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"  
-                                 FontSize="12" 
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" 
                                  Height="70" 
                                  BorderThickness="1"/>
-                    </StackPanel>
-                    <Grid Name="cameras" Margin="0,20,0,0" Visibility="Collapsed" Height="auto" Width="auto">
-                        <Image x:Name="uploadImage" Height="200" Width="200"/>
-                    </Grid>
-                    <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <RadioButton Name="startCamera"
+                        </StackPanel>
+                        <Grid Name="cameras" Margin="0,20,0,0" Visibility="Collapsed" Height="auto" Width="auto">
+                            <Image x:Name="uploadImage" Height="200" Width="200"/>
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <RadioButton Name="startCamera"
                                      HorizontalAlignment="Center"
                                      VerticalAlignment="Center"
                                      Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineRadioButton}"
@@ -671,8 +649,8 @@
                                      Content="Open Cam"
                                      ToolTip="Open your camera" 
                                      Click="startCamera_Click"/>
-                        <StackPanel x:Name="cameraFunction" Orientation="Horizontal">
-                            <RadioButton Name="captureCamera"
+                            <StackPanel x:Name="cameraFunction" Orientation="Horizontal">
+                                <RadioButton Name="captureCamera"
                                      Visibility="Collapsed"
                                      HorizontalAlignment="Center"
                                      Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"     
@@ -680,7 +658,7 @@
                                      Content="Capture"
                                      ToolTip="Capture Photo" 
                                      Click="captureCamera_Click"/>
-                            <RadioButton Name="stopCamera"
+                                <RadioButton Name="stopCamera"
                                      Visibility="Collapsed"
                                      HorizontalAlignment="Center"
                                      Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"     
@@ -688,10 +666,10 @@
                                      Content="Stop"
                                      ToolTip="Stop your camera" 
                                      Click="stopCamera_Click"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <TextBox x:Name="lowest"     
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBox x:Name="lowest"     
                                  Margin="5"      
                                  HorizontalAlignment="Center"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
@@ -701,15 +679,15 @@
                                  Height="auto" 
                                  TextChanged="lowest_TextChanged"
                                  ToolTip="Age Below">
-                            <materialDesign:HintAssist.Hint>
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock Text="Age"/>
-                                    <materialDesign:PackIcon Kind="ArrowDownCircle" Width="auto" Height="auto" VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </materialDesign:HintAssist.Hint>
-                        </TextBox>
+                                <materialDesign:HintAssist.Hint>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="Age"/>
+                                        <materialDesign:PackIcon Kind="ArrowDownCircle" Width="auto" Height="auto" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </materialDesign:HintAssist.Hint>
+                            </TextBox>
 
-                        <TextBox x:Name="highest"      
+                            <TextBox x:Name="highest"      
                                  Margin="5"
                                  HorizontalAlignment="Center"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
@@ -718,21 +696,21 @@
                                  Height="auto" 
                                  TextChanged="highest_TextChanged"
                                  ToolTip="Age Above">
-                            <materialDesign:HintAssist.Hint>
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock Text="Age"/>
-                                    <materialDesign:PackIcon Kind="ArrowUpCircle" Width="auto" Height="auto" VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </materialDesign:HintAssist.Hint>
-                        </TextBox>
+                                <materialDesign:HintAssist.Hint>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="Age"/>
+                                        <materialDesign:PackIcon Kind="ArrowUpCircle" Width="auto" Height="auto" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </materialDesign:HintAssist.Hint>
+                            </TextBox>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
 
-                <!--search-->
-                <StackPanel DockPanel.Dock="Top" Width="auto" Height="auto" Margin="0,20,0,0">
-                    <Grid Margin="0" Height="100">
-                        <materialDesign:Card Width="auto" UniformCornerRadius="10"/>
-                        <!--
+                    <!--search-->
+                    <StackPanel DockPanel.Dock="Top" Width="auto" Height="auto" Margin="0,20,0,0">
+                        <Grid Margin="0" Height="100">
+                            <materialDesign:Card Width="auto" UniformCornerRadius="10"/>
+                            <!--
                          <Grid Width="35" Height="30" Background="#FFFFAF24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 0">
                             <materialDesign:PackIcon Kind="Magnify" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="30" Height="30"/>
                         </Grid>
@@ -740,8 +718,8 @@
                         <materialDesign:PackIcon Kind="DatabaseSearch" Margin="5" Foreground="White" Width="30" Height="30"/>
                         </Grid>
                         -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="auto" Width="auto" Margin="20,0,20,0">
-                            <TextBox  Name="search"         
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="auto" Width="auto" Margin="20,0,20,0">
+                                <TextBox  Name="search"         
                                       HorizontalAlignment="Center"
                                       materialDesign:TextFieldAssist.HasClearButton="True"
                                       Width="150"  
@@ -751,16 +729,16 @@
                                       Height="auto" 
                                       TextChanged="Search_TextChanged"
                                       ToolTip="Search resident code, brgy ID, age, house number, lastname, purok">
-                                <materialDesign:HintAssist.Hint>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <materialDesign:PackIcon Kind="Search" Width="30" Height="30" VerticalAlignment="Center"/>
-                                        <TextBlock Text="Search" FontSize="20"/>
-                                    </StackPanel>
-                                </materialDesign:HintAssist.Hint>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel x:Name="numericContainer" Margin="0,0,20,0" Visibility="Visible" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
-                            <ComboBox 
+                                    <materialDesign:HintAssist.Hint>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="Search" Width="30" Height="30" VerticalAlignment="Center"/>
+                                            <TextBlock Text="Search" FontSize="20"/>
+                                        </StackPanel>
+                                    </materialDesign:HintAssist.Hint>
+                                </TextBox>
+                            </StackPanel>
+                            <StackPanel x:Name="numericContainer" Margin="0,0,20,0" Visibility="Visible" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                                <ComboBox 
                                   Visibility="Collapsed"
                                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                   materialDesign:HintAssist.Hint="Category"
@@ -769,73 +747,73 @@
                                   Height="auto" 
                                   Width="auto" 
                                   BorderThickness="1"/>
-                            <StackPanel Visibility="Visible" Orientation="Horizontal">
-                                <RadioButton x:Name="resCodeRadio" 
+                                <StackPanel Visibility="Visible" Orientation="Horizontal">
+                                    <RadioButton x:Name="resCodeRadio" 
                                              ToolTip="Filter resident code"
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
                                              Margin="5" 
                                              Content="Resident Code" 
                                              Checked="resCodeRadio_Checked"/>
-                                <RadioButton x:Name="brgyIDradio" 
+                                    <RadioButton x:Name="brgyIDradio" 
                                          ToolTip="Filter brgy ID"
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"     
                                              Margin="5" 
                                              Content="Brgy ID" 
                                              Checked="brgyIDradio_Checked"/>
-                                <RadioButton x:Name="ageRadio" 
+                                    <RadioButton x:Name="ageRadio" 
                                          ToolTip="Filter age"
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
                                              Margin="5" Content="Age" 
                                              Checked="ageRadio_Checked"/>
-                                <RadioButton x:Name="houseNumberRadio" 
+                                    <RadioButton x:Name="houseNumberRadio" 
                                          ToolTip="Filter house number"
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
                                              Margin="5" 
                                              Content="House #" 
                                              Checked="houseNumberRadio_Checked"/>
+                                </StackPanel>
                             </StackPanel>
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0"  HorizontalAlignment="Center">
+                            <materialDesign:Card Background="#53bfff" ToolTip="Male" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Name="countMan" Content="0"  FontSize="30" Height="auto" Width="auto"/>
+                                    <materialDesign:PackIcon Width="30" Height="30" Kind="Man" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Background="#fbc898" ToolTip="Female" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Name="countWoman" Content="0"  FontSize="30" Height="auto" Width="auto"/>
+                                    <materialDesign:PackIcon Width="30" Height="30" Kind="Woman" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Background="#02c56c" ToolTip="Senior Citizen" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Name="countElder" Content="0" FontSize="30" Height="auto" Width="auto"/>
+                                    <materialDesign:PackIcon Width="30" Height="30" Kind="Elderly" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Background="#ffad49" ToolTip="Total" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Name="countTotal" Content="0"  FontSize="30" Height="auto" Width="auto"/>
+                                    <materialDesign:PackIcon Width="30" Height="30" Kind="Database" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </materialDesign:Card>
                         </StackPanel>
-                    </Grid>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0"  HorizontalAlignment="Center">
-                        <materialDesign:Card Background="#53bfff" ToolTip="Male" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Name="countMan" Content="0"  FontSize="30" Height="auto" Width="auto"/>
-                                <materialDesign:PackIcon Width="30" Height="30" Kind="Man" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </materialDesign:Card>
-                        <materialDesign:Card Background="#fbc898" ToolTip="Female" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Name="countWoman" Content="0"  FontSize="30" Height="auto" Width="auto"/>
-                                <materialDesign:PackIcon Width="30" Height="30" Kind="Woman" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </materialDesign:Card>
-                        <materialDesign:Card Background="#02c56c" ToolTip="Senior Citizen" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Name="countElder" Content="0" FontSize="30" Height="auto" Width="auto"/>
-                                <materialDesign:PackIcon Width="30" Height="30" Kind="Elderly" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </materialDesign:Card>
-                        <materialDesign:Card Background="#ffad49" ToolTip="Total" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Name="countTotal" Content="0"  FontSize="30" Height="auto" Width="auto"/>
-                                <materialDesign:PackIcon Width="30" Height="30" Kind="Database" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </materialDesign:Card>
                     </StackPanel>
-                </StackPanel>
 
-                <!--datagrid-->
-                <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Height="auto" Width="auto">
-                    <DataGrid IsReadOnly="True" VerticalAlignment="Bottom" CanUserSortColumns="True" Height="480" Name="dbData"  Background="AliceBlue" SelectionChanged="DbData_SelectionChanged">
-                        <DataGrid.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <VirtualizingStackPanel VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling"/>
-                            </ItemsPanelTemplate>
-                        </DataGrid.ItemsPanel>
-                    </DataGrid>
-                </StackPanel>
-            </DockPanel>
-
+                    <!--datagrid-->
+                    <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Height="auto" Width="auto">
+                        <DataGrid IsReadOnly="True" VerticalAlignment="Bottom" CanUserSortColumns="True" Height="480" Name="dbData"  Background="AliceBlue" SelectionChanged="DbData_SelectionChanged">
+                            <DataGrid.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling"/>
+                                </ItemsPanelTemplate>
+                            </DataGrid.ItemsPanel>
+                        </DataGrid>
+                    </StackPanel>
+                </DockPanel>
+            </Grid>
 
 
             <!--Nav Bar-->
@@ -913,7 +891,7 @@
                             ToolTip="Close"
                             Width="30"
                             Height="30"
-                            Foreground="Black">
+                            Foreground="Black" Click="closeLeft_Click">
                         <materialDesign:PackIcon Kind="Close"/>
                     </Button>
                 </StackPanel>
@@ -924,7 +902,7 @@
 
 
             <!--history-->
-            <Grid x:Name="History" Opacity="6.0" Width="1300" Height="auto" HorizontalAlignment="Right"  Background="Transparent" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Margin="0,0,-1300,0">
+            <Grid x:Name="History" Opacity="6.0" Width="1300" HorizontalAlignment="Right" VerticalAlignment="Top" Height="600"  Background="Transparent" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Margin="0,0,-1300,0">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -942,26 +920,17 @@
                 <!--<materialDesign:Card  UniformCornerRadius="0.1" Height="30" VerticalAlignment="Top" Background="#FF3580BF"/>-->
 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 <Grid Width="650" HorizontalAlignment="Left">
-                    <Border Background="#65ffa0" CornerRadius="20" BorderThickness="1" BorderBrush="White" Padding="20"/>
+                    <Border BorderThickness="1" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20" Padding="20"/>
                     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
-                        <Button x:Name="closeHistory" 
+                        <Button x:Name="closeRight" 
                             HorizontalAlignment="Right" 
                             Background="{x:Null}" BorderBrush="{x:Null}" 
                             Width="30" 
                             Height="30" 
                             Padding="0"
                             ToolTip="Close"
-                            Foreground="Black">
+                            Foreground="Black" Click="closeRight_Click">
                             <materialDesign:PackIcon Kind="Close"/>
                         </Button>
                     </StackPanel>
@@ -977,8 +946,8 @@
                             <!--search-->
                             <StackPanel DockPanel.Dock="Top" Width="auto" Height="auto" Margin="0,0,0,0">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="KonTra" FontSize="50"/>
-                                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="20" HorizontalAlignment="Center" Height="30" Foreground="Salmon" Width="30" Kind="Virus" />
+                                    <TextBlock Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Text="KonTra" FontSize="50"/>
+                                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="20" HorizontalAlignment="Center" Height="30" Foreground="#65ffa0" Width="30" Kind="Virus" />
                                 </StackPanel>
 
                                 <!--BUG-->
@@ -996,7 +965,7 @@
                                     <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" Height="auto" Width="auto" Margin="20,0,20,0">
                                         <TextBox Name="SearchHistory"
                                                   materialDesign:TextFieldAssist.HasClearButton="True"
-                                                  Width="500"  
+                                                  Width="250"  
                                                   BorderThickness="1" 
                                                   Style="{StaticResource MaterialDesignOutlinedTextBox}" 
                                                   FontSize="20" 
@@ -1013,7 +982,7 @@
                                     </StackPanel>
 
                                     <StackPanel Margin="0,0,20,0" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
-                                        <StackPanel x:Name="numericContainerHistory" Visibility="Collapsed"  Orientation="Horizontal">
+                                        <StackPanel x:Name="numericContainerHistory" Visibility="Visible"  Orientation="Horizontal">
                                             <RadioButton x:Name="resCodeHistoryRadio" 
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineRadioButton}"
                                              Margin="5" 
@@ -1024,13 +993,11 @@
                                              Content="Date" Checked="dateHistoryRadio_Checked"/>
                                         </StackPanel>
                                         <Button Name="refreshTracker"
-                                            Style="{StaticResource MaterialDesignFlatButton}"
-                                            Padding="0"
-                                            Width="50" 
-                                            Height="50"  
-                                            ToolTip="Refresh" Click="refreshTracker_Click">
-                                            <materialDesign:PackIcon Kind="Refresh" Width="30" Height="30"/>
-                                        </Button>
+                                                Margin="5" 
+                                                Content="Refresh"
+                                                Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                                                materialDesign:ButtonAssist.CornerRadius="15"
+                                                ToolTip="Refresh" Click="refreshTracker_Click"/>
                                     </StackPanel>
                                     <!--
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10"  HorizontalAlignment="Right">
@@ -1043,7 +1010,7 @@
 
                             <!--datagrid-->
                             <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Center" Height="auto" Width="auto">
-                                <DataGrid Name="dbHistory" Margin="20,0,20,0" IsReadOnly="True" VerticalAlignment="Bottom"  CanUserSortColumns="True" Height="400" Background="AliceBlue">
+                                <DataGrid Name="dbHistory" Margin="20,0,20,0" IsReadOnly="True" VerticalAlignment="Bottom"  CanUserSortColumns="True" Height="300" Background="AliceBlue">
                                     <!--
                             <DataGrid.ItemsPanel>
                                 <ItemsPanelTemplate>

@@ -1506,7 +1506,7 @@ namespace DotBrgy
         {
             Clear(this);
             DisplayAll();
-        }
+        }                             
 
         private void SearchHistory_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -1519,16 +1519,7 @@ namespace DotBrgy
             }
             else
             {
-                if (SearchHistory.Text == string.Empty)
-                {
-                    SearchHistory.Width = 500;
-                    numericContainerHistory.Visibility = Visibility.Hidden;
-                }
-                else
-                {
-                    SearchHistory.Width = 300;
-                    numericContainerHistory.Visibility = Visibility.Visible;
-                }
+                return;
             }
 
         }
@@ -2153,6 +2144,26 @@ namespace DotBrgy
                 DataView dv = dbData.ItemsSource as DataView;
                 dv.RowFilter = "Convert(age, 'System.String') >= '" + int.Parse(lowest.Text.ToString()) + "' and  Convert(age, 'System.String') <= '" + int.Parse(highest.Text.ToString()) + "'"; //where n is a column name of the DataTable 
             }
+        }
+
+        private void openRight_Click(object sender, RoutedEventArgs e)
+        {
+            Main.IsEnabled = false;
+        }
+
+        private void closeRight_Click(object sender, RoutedEventArgs e)
+        {
+            Main.IsEnabled=true;
+        }
+
+        private void openLeft_Click(object sender, RoutedEventArgs e)
+        {
+            Main.IsEnabled = false;
+        }
+
+        private void closeLeft_Click(object sender, RoutedEventArgs e)
+        {
+            Main.IsEnabled = true;
         }
     }
 }

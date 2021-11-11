@@ -849,5 +849,24 @@ namespace DotBrgy
             DataView dv = dbData.ItemsSource as DataView;
             dv.RowFilter = "Convert(houseNumber, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable
         }
+        private void openRight_Click(object sender, RoutedEventArgs e)
+        {
+          Main.IsEnabled = false;   
+        }
+
+        private void closeRight_Click(object sender, RoutedEventArgs e)
+        {
+           Main.IsEnabled = true;
+        }
+
+        private void openLeft_Click(object sender, RoutedEventArgs e)
+        {
+           Main.IsEnabled = false;
+        }
+
+        private void closeLeft_Click(object sender, RoutedEventArgs e)
+        {
+           Main.IsEnabled = true;
+        }
     }
 }

@@ -8,12 +8,11 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
-         TextElement.FontSize="13"
          TextOptions.TextFormattingMode="Ideal"
          TextOptions.TextRenderingMode="Auto"
          Background="{x:Null}" 
          AllowsTransparency="True"
-         FontFamily="consolas" 
+         FontFamily="Montserrat" 
          Height="700" 
          Width="1300" 
          WindowStyle="None" 
@@ -64,17 +63,17 @@
 
     <Window.Triggers>
         <!--openNavigation-->
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenNav">
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="openRight">
             <BeginStoryboard Storyboard="{StaticResource OpenNavBar}"/>
         </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseNav">
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="closeRight">
             <BeginStoryboard x:Name="CloseMenuBeginStory" Storyboard="{StaticResource CloseNavBar}"/>
         </EventTrigger>
 
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="openLeft">
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Close">
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="closeLeft">
             <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
         </EventTrigger>
     </Window.Triggers>
@@ -152,10 +151,11 @@
         
         <!--Main menu-->
         <Grid>
+            <Grid x:Name="Main">
             <Border BorderThickness="1" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20"/>
             <!--<materialDesign:Card UniformCornerRadius="0.1" Height="30" VerticalAlignment="Top"  Background="#484848"/>-->
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">
-                <Button x:Name="ButtonOpen" 
+                <Button x:Name="openLeft" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Background="{x:Null}" 
@@ -165,7 +165,7 @@
                         Padding="0" 
                         Margin="0"
                         ToolTip="Menu"
-                        Foreground="Black">
+                        Foreground="Black" Click="openLeft_Click">
                     <materialDesign:PackIcon Kind="Menu"/>
                 </Button>
             </StackPanel>
@@ -174,14 +174,14 @@
                 <materialDesign:PackIcon Width="30" Foreground="#65ffa0" Height="30" Kind="Spy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Margin="5">
-                <Button x:Name="ButtonOpenNav"
+                <Button x:Name="openRight"
                         Width="30" 
                         Height="30" 
                         Padding="0" 
                         Background="{x:Null}" 
                         BorderBrush="{x:Null}"
                         Foreground="Black"
-                        ToolTip="Add, edit, and delete users">
+                        ToolTip="Add, edit, and delete users" Click="openRight_Click">
                     <materialDesign:PackIcon Kind="User" Width="15" Height="15"/>
                 </Button>
                 <Button x:Name="Minimize" 
@@ -225,8 +225,7 @@
                             <TextBox Name="houseNumber" 
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     materialDesign:HintAssist.Hint="House Number"  
-                                     FontSize="12" 
+                                     materialDesign:HintAssist.Hint="House Number" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
@@ -234,23 +233,20 @@
                                      Height="auto"
                                      materialDesign:HintAssist.Hint="Brgy ID" 
                                      Margin="5" 
-                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     FontSize="12" 
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      Width="auto" 
                                      BorderThickness="1"/>
                             <TextBox Name="firstname" 
                                      materialDesign:HintAssist.Hint="Firstname" 
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
                             <TextBox Name="middlename" 
                                      materialDesign:HintAssist.Hint="Middlename" 
                                      Margin="5" 
-                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"  
-                                     FontSize="12" 
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      Height="auto" 
                                      Width="auto"  
                                      BorderThickness="1"/>
@@ -258,7 +254,6 @@
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      materialDesign:HintAssist.Hint="Lastname"  
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
@@ -266,15 +261,13 @@
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Sex"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
                             <DatePicker Name="Birthdate"  
                                      Margin="5" 
                                      materialDesign:HintAssist.Hint="Birthdate" 
-                                     Style="{StaticResource MaterialDesignOutlinedDatePicker}"  
-                                     FontSize="12" 
+                                     Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
@@ -283,15 +276,13 @@
                                      Margin="5" 
                                      materialDesign:HintAssist.Hint="Birth Place" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"  
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
                             <ComboBox Name="CivilStatus" 
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Civil Status"  
-                                      FontSize="12" 
+                                      materialDesign:HintAssist.Hint="Civil Status" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -300,7 +291,6 @@
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Purok"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -308,8 +298,7 @@
                                       IsEditable="True"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Education Attainment"  
-                                      FontSize="12" 
+                                      materialDesign:HintAssist.Hint="Education Attainment"
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -333,7 +322,6 @@
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      materialDesign:HintAssist.Hint="Philhealth"  
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
@@ -341,7 +329,6 @@
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Registered Voter"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -349,7 +336,6 @@
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Occupation"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -358,14 +344,12 @@
                                      materialDesign:HintAssist.Hint="Family Planning" 
                                      Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     FontSize="12" 
                                      Width="auto" 
                                      BorderThickness="1"/>
                             <ComboBox Name="faucet"
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Faucet"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -373,7 +357,6 @@
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Comfort Room"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -381,7 +364,6 @@
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Senior ID"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -389,7 +371,6 @@
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="PWD"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -397,7 +378,6 @@
                                       Margin="5" 
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                       materialDesign:HintAssist.Hint="Indigenous People"  
-                                      FontSize="12" 
                                       Height="auto" 
                                       Width="auto" 
                                       BorderThickness="1"/>
@@ -405,7 +385,6 @@
                                      materialDesign:HintAssist.Hint="Membership" 
                                      Margin="5" 
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     FontSize="12" 
                                      Height="auto" 
                                      Width="auto" 
                                      BorderThickness="1"/>
@@ -591,6 +570,7 @@
                     <DataGrid IsReadOnly="True" VerticalAlignment="Bottom"  CanUserSortColumns="True" Height="480" Name="dbData"  Background="AliceBlue" SelectionChanged="dbData_SelectionChanged"/>
                 </StackPanel>
             </DockPanel>
+            </Grid>
 
             <!--User-->
             
@@ -604,13 +584,13 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
 
-                <Border Background="#65ffa0" CornerRadius="20"/>
+                <Border Background="#f6f6f6" BorderBrush="#65ffa0" BorderThickness="2" CornerRadius="20"/>
                 <!--<materialDesign:Card  UniformCornerRadius="0.1" Height="30" VerticalAlignment="Top" Background="#484848"/>-->
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5" ToolTip="User Account">
-                    <materialDesign:PackIcon Width="30" Foreground="White" Height="30" Kind="User" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Width="30" Foreground="#65ffa0" Height="30" Kind="User" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
-                    <Button x:Name="ButtonCloseNav"
+                    <Button x:Name="closeRight"
                             ToolTip="Close Window" 
                             Background="{x:Null}" 
                             BorderBrush="{x:Null}" 
@@ -620,7 +600,7 @@
                             Width="30" 
                             Height="30" 
                             Padding="0" 
-                            Grid.RowSpan="2">
+                            Grid.RowSpan="2" Click="closeRight_Click">
                         <materialDesign:PackIcon Kind="Close" Width="15" Height="15"/>
                     </Button>
                 </StackPanel>
@@ -634,17 +614,17 @@
                         <Grid Margin="20" Height="auto">
                             <!--<materialDesign:Card Width="auto"/>-->
                             <StackPanel Margin="0">
-                                <TextBox Name="user_firstname" Margin="5" materialDesign:HintAssist.Hint="Firstname" Style="{StaticResource MaterialDesignOutlinedTextBox}"  FontSize="12" Height="auto" BorderThickness="1"/>
-                                <TextBox Name="user_lastname" Margin="5" materialDesign:HintAssist.Hint="Lastname" Style="{StaticResource MaterialDesignOutlinedTextBox}"  FontSize="12" Height="auto" BorderThickness="1"/>
-                                <TextBox Name="user_username" Margin="5" materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignOutlinedTextBox}"  FontSize="12" Height="auto" BorderThickness="1"/>
-                                <TextBox Name="user_password" Margin="5" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignOutlinedTextBox}"  FontSize="12" Height="auto" BorderThickness="1"/>
-                                <TextBox Name="user_address" Margin="5" materialDesign:HintAssist.Hint="Address" Style="{StaticResource MaterialDesignOutlinedTextBox}"  FontSize="12" Height="auto" BorderThickness="1"/>
-                                <TextBox Name="user_mobileNumber" Margin="5" materialDesign:HintAssist.Hint="Mobile Number" Style="{StaticResource MaterialDesignOutlinedTextBox}"  FontSize="12" Height="auto" BorderThickness="1"/>
+                                <TextBox Name="user_firstname" Margin="5" materialDesign:HintAssist.Hint="Firstname" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" BorderThickness="1"/>
+                                <TextBox Name="user_lastname" Margin="5" materialDesign:HintAssist.Hint="Lastname" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" BorderThickness="1"/>
+                                <TextBox Name="user_username" Margin="5" materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" BorderThickness="1"/>
+                                <TextBox Name="user_password" Margin="5" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" BorderThickness="1"/>
+                                <TextBox Name="user_address" Margin="5" materialDesign:HintAssist.Hint="Address" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" BorderThickness="1"/>
+                                <TextBox Name="user_mobileNumber" Margin="5" materialDesign:HintAssist.Hint="Mobile Number" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" BorderThickness="1"/>
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <RadioButton Margin="0,5" Name="user_checkboxAdmin" Content="Administrator" VerticalContentAlignment="Center" Height="30" Width="auto"/>
                                     <RadioButton Margin="0,5" Name="user_checkboxStandard" Content="Standard" VerticalContentAlignment="Center" Height="30" Width="auto"/>
                                 </StackPanel>
-                                <TextBox Visibility="Hidden" Name="userId" materialDesign:HintAssist.Hint="User Id" FontSize="12" Height="auto"/>
+                                <TextBox Visibility="Hidden" Name="userId" materialDesign:HintAssist.Hint="User Id" Height="auto"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
@@ -799,7 +779,7 @@
                     </ListView>
                 </StackPanel>
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
-                    <Button x:Name="Close" 
+                    <Button x:Name="closeLeft" 
                             ToolTip="Close"
                             HorizontalAlignment="Right" 
                             VerticalAlignment="Top" 
@@ -808,7 +788,7 @@
                             Foreground="Black"
                             Width="30" 
                             Height="30" 
-                            Padding="0" >
+                            Padding="0" Click="closeLeft_Click" >
                         <materialDesign:PackIcon Kind="Close"/>
                     </Button>
                 </StackPanel>
