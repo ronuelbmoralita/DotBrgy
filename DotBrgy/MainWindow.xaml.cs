@@ -1185,6 +1185,11 @@ namespace DotBrgy
                 transType.Visibility = Visibility.Collapsed;
                 cameras.Visibility = Visibility.Collapsed;
                 uploadImage.Source = null;
+
+
+                clearance.Visibility = Visibility.Collapsed;
+                indigency.Visibility = Visibility.Collapsed;
+                residency.Visibility = Visibility.Collapsed;
                 //age.Visibility = Visibility.Collapsed;
                 //printDocument.Visibility = Visibility.Collapsed;
                 //logo.Visibility = Visibility.Visible;
@@ -1198,6 +1203,11 @@ namespace DotBrgy
                 saveData.IsEnabled = false;
                 transType.Visibility = Visibility.Visible;
                 cameras.Visibility = Visibility.Visible;
+
+
+                clearance.Visibility = Visibility.Visible;
+                indigency.Visibility = Visibility.Visible;
+                residency.Visibility = Visibility.Visible;
                 //age.Visibility = Visibility.Visible;
                 //printDocument.Visibility = Visibility.Visible;
                 //age.Visibility = Visibility.Visible;
@@ -1647,11 +1657,6 @@ namespace DotBrgy
             DataView dv = dbData.ItemsSource as DataView;
             dv.RowFilter = "Convert(brgyID, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable
         }
-        private void ageRadio_Checked(object sender, RoutedEventArgs e)
-        {
-            DataView dv = dbData.ItemsSource as DataView;
-            dv.RowFilter = "Convert(age, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable   
-        }
         private void houseNumberRadio_Checked(object sender, RoutedEventArgs e)
         {
             DataView dv = dbData.ItemsSource as DataView;
@@ -1888,7 +1893,7 @@ namespace DotBrgy
                     this.frBrgyID(wordApp, "<day>", DateTime.Now.ToString("dd"));
                     this.frBrgyID(wordApp, "<month>", DateTime.Now.ToString("MMMM"));
                     this.frBrgyID(wordApp, "<year>", DateTime.Now.ToString("yyyy"));
-                    this.frBrgyID(wordApp, "<Sex>", Sex.Text);
+                    this.frBrgyID(wordApp, "<sex>", Sex.Text);
                     this.frBrgyID(wordApp, "<Birthdate>", Birthdate.Text);
                     //this.FindAndReplace(wordApp, "<or>", DateTime.Now.ToString("yyyyMMdd-HHmmss-fff"));
                     this.FindAndReplace(wordApp, "<or>", code.Text);
@@ -2164,6 +2169,45 @@ namespace DotBrgy
         private void closeLeft_Click(object sender, RoutedEventArgs e)
         {
             Main.IsEnabled = true;
+        }
+
+        private void clearance_Click(object sender, RoutedEventArgs e)
+        {
+            Tracker();
+            WaitCursor();
+            SaveQRCODEImage();
+            CreateWordDocument(@"C:\DotBrgy\Documents\clearance.docx", @"C:\DotBrgy\Print\print.docx");
+            NormalCursor();
+        }
+
+        private void indigency_Click(object sender, RoutedEventArgs e)
+        {
+            Tracker();
+            WaitCursor();
+            SaveQRCODEImage();
+            CreateWordDocument(@"C:\DotBrgy\Documents\indigency.docx", @"C:\DotBrgy\Print\print.docx");
+            NormalCursor();
+        }
+
+        private void residency_Click(object sender, RoutedEventArgs e)
+        {
+            Tracker();
+            WaitCursor();
+            SaveQRCODEImage();
+            CreateWordDocument(@"C:\DotBrgy\Documents\residency.docx", @"C:\DotBrgy\Print\print.docx");
+            NormalCursor();
+        }
+
+        private void okay_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("hi pogi");
+        }
+
+        private void refreshAge_Click(object sender, RoutedEventArgs e)
+        {
+            lowest.Text = String.Empty;
+            highest.Text = String.Empty;
+            DisplayData();
         }
     }
 }

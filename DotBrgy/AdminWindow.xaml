@@ -152,7 +152,7 @@
         <!--Main menu-->
         <Grid>
             <Grid x:Name="Main">
-            <Border BorderThickness="1" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20"/>
+            <Border BorderThickness="2" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20"/>
             <!--<materialDesign:Card UniformCornerRadius="0.1" Height="30" VerticalAlignment="Top"  Background="#484848"/>-->
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">
                 <Button x:Name="openLeft" 
@@ -524,11 +524,6 @@
                                              Margin="5" 
                                              Content="Brgy ID" 
                                              Checked="brgyIDradio_Checked"/>
-                            <RadioButton x:Name="ageRadio" 
-                                         ToolTip="Filter age"
-                                             Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
-                                             Margin="5" Content="Age" 
-                                             Checked="ageRadio_Checked"/>
                             <RadioButton x:Name="houseNumberRadio" 
                                          ToolTip="Filter house number"
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"

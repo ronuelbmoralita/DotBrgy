@@ -839,11 +839,6 @@ namespace DotBrgy
             DataView dv = dbData.ItemsSource as DataView;
             dv.RowFilter = "Convert(brgyID, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable                                                                                                 
         }
-        private void ageRadio_Checked(object sender, RoutedEventArgs e)
-        {
-            DataView dv = dbData.ItemsSource as DataView;
-            dv.RowFilter = "Convert(age, 'System.String') like '%" + search.Text + "%'"; //where n is a column name of the DataTable     
-        }
         private void houseNumberRadio_Checked(object sender, RoutedEventArgs e)
         {
             DataView dv = dbData.ItemsSource as DataView;

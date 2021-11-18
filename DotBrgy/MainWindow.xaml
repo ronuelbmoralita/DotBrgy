@@ -213,7 +213,7 @@
             <!--Main Menu-->
         <Grid>
             <Grid x:Name="Main">
-                <Border BorderThickness="1" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20"/>
+                <Border BorderThickness="2" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20"/>
                 <!--<materialDesign:Card UniformCornerRadius="0.1" Height="30" VerticalAlignment="Top"  Background="#484848"/>-->
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">
                     <Button x:Name="openLeft" 
@@ -326,85 +326,85 @@
                         -->
                                     <StackPanel Margin="10" Height="auto">
                                         <TextBox Name="houseNumber" 
-                                     Margin="5" 
-                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     materialDesign:HintAssist.Hint="House Number"  
-                                     Height="auto" 
-                                     Width="auto" 
-                                     BorderThickness="1"/>
+                                                 Margin="5" 
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                 materialDesign:HintAssist.Hint="House Number"  
+                                                 Height="auto" 
+                                                 Width="auto" 
+                                                 BorderThickness="1"/>
                                         <TextBox Name="brgyID" 
-                                     Height="auto"
-                                     materialDesign:HintAssist.Hint="Brgy ID" 
-                                     Margin="5" 
-                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     Width="auto" 
-                                     BorderThickness="1"/>
+                                                 Height="auto"
+                                                 materialDesign:HintAssist.Hint="Brgy ID" 
+                                                 Margin="5" 
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                 Width="auto" 
+                                                 BorderThickness="1"/>
                                         <TextBox Name="firstname" 
-                                     materialDesign:HintAssist.Hint="Firstname" 
-                                     Margin="5" 
-                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     Height="auto" 
-                                     Width="auto" 
-                                     BorderThickness="1"/>
+                                                 materialDesign:HintAssist.Hint="Firstname" 
+                                                 Margin="5" 
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                 Height="auto" 
+                                                 Width="auto" 
+                                                 BorderThickness="1"/>
                                         <TextBox Name="middlename" 
-                                     materialDesign:HintAssist.Hint="Middlename" 
-                                     Margin="5" 
-                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"  
-                                     Height="auto" 
-                                     Width="auto"  
-                                     BorderThickness="1"/>
+                                                 materialDesign:HintAssist.Hint="Middlename" 
+                                                 Margin="5" 
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"  
+                                                 Height="auto" 
+                                                 Width="auto"  
+                                                 BorderThickness="1"/>
                                         <TextBox Name="lastname" 
-                                     Margin="5" 
-                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     materialDesign:HintAssist.Hint="Lastname"  
-                                     Height="auto" 
-                                     Width="auto" 
-                                     BorderThickness="1"/>
+                                                 Margin="5" 
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                 materialDesign:HintAssist.Hint="Lastname"  
+                                                 Height="auto" 
+                                                 Width="auto" 
+                                                 BorderThickness="1"/>
                                         <ComboBox Name="Sex" 
-                                      Margin="5" 
-                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Sex"  
-                                      Height="auto" 
-                                      Width="auto" 
-                                      BorderThickness="1"/>
+                                                  Margin="5" 
+                                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                  materialDesign:HintAssist.Hint="Sex"  
+                                                  Height="auto" 
+                                                  Width="auto" 
+                                                  BorderThickness="1"/>
                                         <DatePicker Name="Birthdate"  
-                                     Margin="5" 
-                                     materialDesign:HintAssist.Hint="Birthdate" 
-                                     Style="{StaticResource MaterialDesignOutlinedDatePicker}"  
-                                     Height="auto" 
-                                     Width="auto" 
-                                     BorderThickness="1"/>
+                                                     Margin="5" 
+                                                     materialDesign:HintAssist.Hint="Birthdate" 
+                                                     Style="{StaticResource MaterialDesignOutlinedDatePicker}"  
+                                                     Height="auto" 
+                                                     Width="auto" 
+                                                     BorderThickness="1"/>
                                         <TextBox Name="birthPlace" 
-                                     TextWrapping="Wrap" 
-                                     Margin="5" 
-                                     materialDesign:HintAssist.Hint="Birth Place" 
-                                     Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-                                     Height="auto" 
-                                     Width="auto" 
-                                     BorderThickness="1"/>
+                                                 TextWrapping="Wrap" 
+                                                 Margin="5" 
+                                                 materialDesign:HintAssist.Hint="Birth Place" 
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+                                                 Height="auto" 
+                                                 Width="auto" 
+                                                 BorderThickness="1"/>
                                         <ComboBox Name="CivilStatus" 
-                                      Margin="5" 
-                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Civil Status"
-                                      Height="auto" 
-                                      Width="auto" 
-                                      BorderThickness="1"/>
+                                                  Margin="5" 
+                                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                  materialDesign:HintAssist.Hint="Civil Status"
+                                                  Height="auto" 
+                                                  Width="auto" 
+                                                  BorderThickness="1"/>
                                         <ComboBox Name="purok"
-                                      IsEditable="True"
-                                      Margin="5" 
-                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Purok"  
-                                      Height="auto" 
-                                      Width="auto" 
-                                      BorderThickness="1"/>
+                                                  IsEditable="True"
+                                                  Margin="5" 
+                                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                  materialDesign:HintAssist.Hint="Purok"  
+                                                  Height="auto" 
+                                                  Width="auto" 
+                                                  BorderThickness="1"/>
                                         <ComboBox Name="educationAttainment"
-                                      IsEditable="True"
-                                      Margin="5" 
-                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      materialDesign:HintAssist.Hint="Education Attainment"  
-                                      Height="auto" 
-                                      Width="auto" 
-                                      BorderThickness="1"/>
+                                                  IsEditable="True"
+                                                  Margin="5" 
+                                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                  materialDesign:HintAssist.Hint="Education Attainment"  
+                                                  Height="auto" 
+                                                  Width="auto" 
+                                                  BorderThickness="1"/>
                                     </StackPanel>
                                 </Grid>
                                 <TextBox Visibility="Hidden" Name="trackId" Height="auto" Width="auto" TextChanged="TrackId_TextChanged"/>
@@ -511,7 +511,7 @@
                                 <Button Name="saveData"
                                     Padding="0"
                                     Style="{StaticResource MaterialDesignFloatingActionButton}"
-                                    Margin="20"
+                                    Margin="10"
                                     Height="50"
                                     Width="50"
                                     RenderTransformOrigin="0.5,0.5"
@@ -522,7 +522,7 @@
                                 <Button Name="edit"
                                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                                     Padding="0"
-                                    Margin="20"
+                                    Margin="10"
                                     Width="50" 
                                     Height="50"   
                                     ToolTip="Edit" 
@@ -534,7 +534,7 @@
                                     Click="Refresh_Click"  
                                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                                     Padding="0"
-                                    Margin="20"
+                                    Margin="10"
                                     Width="50" 
                                     Height="50" 
                                     ToolTip="Refresh">
@@ -595,6 +595,33 @@
                                             Content="Print ID"
                                             ToolTip="Print Barangay ID"
                                             Click="printID_Click" />
+                                        <RadioButton 
+                                            Name="clearance"
+                                            Visibility="Collapsed"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
+                                            Margin="5" 
+                                            Content="Clearance"
+                                            ToolTip="Print Document" Click="clearance_Click"/>
+                                        <RadioButton 
+                                            Name="indigency"
+                                            Visibility="Collapsed"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
+                                            Margin="5" 
+                                            Content="Indigency"
+                                            ToolTip="Print Document" Click="indigency_Click"/>
+                                        <RadioButton 
+                                            Name="residency"
+                                            Visibility="Collapsed"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
+                                            Margin="5" 
+                                            Content="Residency"
+                                            ToolTip="Print Document" Click="residency_Click"/>
                                     </StackPanel>
                                 </materialDesign:PopupBox>
 
@@ -618,8 +645,8 @@
                         </Grid>
                         <StackPanel>
                             <ComboBox Name="transType"
-                                  Style="{StaticResource MaterialDesignFilledComboBox}"
-                                  Visibility="Collapsed"
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                  Visibility="Visible"
                                   IsEditable="True"
                                   Margin="20,20,20,0"
                                   materialDesign:HintAssist.Hint="Type of Documents"  
@@ -668,42 +695,6 @@
                                      Click="stopCamera_Click"/>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBox x:Name="lowest"     
-                                 Margin="5"      
-                                 HorizontalAlignment="Center"
-                                 materialDesign:TextFieldAssist.HasClearButton="True"
-                                 Width="auto"  
-                                 BorderThickness="1" 
-                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                 Height="auto" 
-                                 TextChanged="lowest_TextChanged"
-                                 ToolTip="Age Below">
-                                <materialDesign:HintAssist.Hint>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <TextBlock Text="Age"/>
-                                        <materialDesign:PackIcon Kind="ArrowDownCircle" Width="auto" Height="auto" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                </materialDesign:HintAssist.Hint>
-                            </TextBox>
-
-                            <TextBox x:Name="highest"      
-                                 Margin="5"
-                                 HorizontalAlignment="Center"
-                                 materialDesign:TextFieldAssist.HasClearButton="True"
-                                 BorderThickness="1" 
-                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                 Height="auto" 
-                                 TextChanged="highest_TextChanged"
-                                 ToolTip="Age Above">
-                                <materialDesign:HintAssist.Hint>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <TextBlock Text="Age"/>
-                                        <materialDesign:PackIcon Kind="ArrowUpCircle" Width="auto" Height="auto" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                </materialDesign:HintAssist.Hint>
-                            </TextBox>
-                        </StackPanel>
                     </StackPanel>
 
                     <!--search-->
@@ -718,17 +709,18 @@
                         <materialDesign:PackIcon Kind="DatabaseSearch" Margin="5" Foreground="White" Width="30" Height="30"/>
                         </Grid>
                         -->
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="auto" Width="auto" Margin="20,0,20,0">
-                                <TextBox  Name="search"         
-                                      HorizontalAlignment="Center"
-                                      materialDesign:TextFieldAssist.HasClearButton="True"
-                                      Width="150"  
-                                      BorderThickness="1" 
-                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                      FontSize="20" 
-                                      Height="auto" 
-                                      TextChanged="Search_TextChanged"
-                                      ToolTip="Search resident code, brgy ID, age, house number, lastname, purok">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="auto" Width="auto" Margin="20,0,20,0">
+                                <TextBox  Name="search" 
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"
+                                          materialDesign:TextFieldAssist.HasClearButton="True"
+                                          Width="500"  
+                                          BorderThickness="1" 
+                                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                          FontSize="20" 
+                                          Height="auto" 
+                                          TextChanged="Search_TextChanged"
+                                          ToolTip="Search resident code, brgy ID, age, house number, lastname, purok">
                                     <materialDesign:HintAssist.Hint>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                                             <materialDesign:PackIcon Kind="Search" Width="30" Height="30" VerticalAlignment="Center"/>
@@ -737,8 +729,9 @@
                                     </materialDesign:HintAssist.Hint>
                                 </TextBox>
                             </StackPanel>
-                            <StackPanel x:Name="numericContainer" Margin="0,0,20,0" Visibility="Visible" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
-                                <ComboBox 
+                        </Grid>
+                        <StackPanel x:Name="numericContainer" Margin="10" Visibility="Visible" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <ComboBox 
                                   Visibility="Collapsed"
                                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                   materialDesign:HintAssist.Hint="Category"
@@ -747,35 +740,90 @@
                                   Height="auto" 
                                   Width="auto" 
                                   BorderThickness="1"/>
-                                <StackPanel Visibility="Visible" Orientation="Horizontal">
-                                    <RadioButton x:Name="resCodeRadio" 
+                            <StackPanel Visibility="Visible" Orientation="Horizontal">
+                                <RadioButton x:Name="resCodeRadio" 
                                              ToolTip="Filter resident code"
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
                                              Margin="5" 
                                              Content="Resident Code" 
                                              Checked="resCodeRadio_Checked"/>
-                                    <RadioButton x:Name="brgyIDradio" 
+                                <RadioButton x:Name="brgyIDradio" 
                                          ToolTip="Filter brgy ID"
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"     
                                              Margin="5" 
                                              Content="Brgy ID" 
                                              Checked="brgyIDradio_Checked"/>
-                                    <RadioButton x:Name="ageRadio" 
-                                         ToolTip="Filter age"
-                                             Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
-                                             Margin="5" Content="Age" 
-                                             Checked="ageRadio_Checked"/>
-                                    <RadioButton x:Name="houseNumberRadio" 
+                                <RadioButton x:Name="houseNumberRadio" 
                                          ToolTip="Filter house number"
                                              Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
                                              Margin="5" 
                                              Content="House #" 
                                              Checked="houseNumberRadio_Checked"/>
+                                <StackPanel Margin="10" Orientation="Horizontal">
+                                    <TextBlock Text="Filter Age"
+                                               Padding="0"
+                                               VerticalAlignment="Center" 
+                                               HorizontalAlignment="Center"/>
+                                    <materialDesign:PopupBox 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Style="{StaticResource MaterialDesignPopupBox}"
+                                    Width="auto" 
+                                    Height="auto" 
+                                    Margin="0" 
+                                    PlacementMode="BottomAndAlignCentres"
+                                    StaysOpen="True">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <StackPanel Margin="10" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <TextBox x:Name="lowest"     
+                                                         Margin="5"      
+                                                         HorizontalAlignment="Center"
+                                                         materialDesign:TextFieldAssist.HasClearButton="True"
+                                                         Width="auto"  
+                                                         BorderThickness="1" 
+                                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                         materialDesign:HintAssist.Hint="Below" 
+                                                         Height="auto" 
+                                                         TextChanged="lowest_TextChanged"
+                                                         ToolTip="Age Below">
+                                                </TextBox>
+
+                                                <TextBox x:Name="highest"      
+                                                         Margin="5"
+                                                         HorizontalAlignment="Center"
+                                                         materialDesign:TextFieldAssist.HasClearButton="True"
+                                                         BorderThickness="1" 
+                                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                         materialDesign:HintAssist.Hint="Above"
+                                                         Height="auto" 
+                                                         TextChanged="highest_TextChanged"
+                                                         ToolTip="Age Above">
+                                                         
+                                                    <!--
+                                                    <materialDesign:HintAssist.Hint>
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                            <TextBlock Text="Age"/>
+                                                            <materialDesign:PackIcon Kind="ArrowUpCircle" Width="auto" Height="auto" VerticalAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </materialDesign:HintAssist.Hint>
+                                                    -->
+                                                </TextBox>
+                                            </StackPanel>
+                                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button Name="refreshAge"
+                                                        Margin="5" 
+                                                        Content="Refresh"
+                                                        Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="15"
+                                                        ToolTip="Refresh" Click="refreshAge_Click"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </materialDesign:PopupBox>
                                 </StackPanel>
                             </StackPanel>
-                        </Grid>
+                        </StackPanel>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0"  HorizontalAlignment="Center">
-                            <materialDesign:Card Background="#53bfff" ToolTip="Male" Margin="10" UniformCornerRadius="10" Visibility="Visible" Width="auto" Height="auto">
+                            <materialDesign:Card Background="#53bfff" ToolTip="Male" Margin="10" UniformCornerRadius="15" Visibility="Visible" Width="auto" Height="auto">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                     <Label Name="countMan" Content="0"  FontSize="30" Height="auto" Width="auto"/>
                                     <materialDesign:PackIcon Width="30" Height="30" Kind="Man" HorizontalAlignment="Center"/>
@@ -804,7 +852,7 @@
 
                     <!--datagrid-->
                     <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Height="auto" Width="auto">
-                        <DataGrid IsReadOnly="True" VerticalAlignment="Bottom" CanUserSortColumns="True" Height="480" Name="dbData"  Background="AliceBlue" SelectionChanged="DbData_SelectionChanged">
+                        <DataGrid IsReadOnly="True" VerticalAlignment="Bottom" CanUserSortColumns="True" Height="400" Name="dbData"  Background="AliceBlue" SelectionChanged="DbData_SelectionChanged">
                             <DataGrid.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling"/>
@@ -921,7 +969,7 @@
 
                 
                 <Grid Width="650" HorizontalAlignment="Left">
-                    <Border BorderThickness="1" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20" Padding="20"/>
+                    <Border BorderThickness="2" BorderBrush="#65ffa0" Background="#f6f6f6" CornerRadius="20" Padding="20"/>
                     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
                         <Button x:Name="closeRight" 
                             HorizontalAlignment="Right" 
@@ -944,10 +992,10 @@
                         <StackPanel DockPanel.Dock="Left" Height="auto" Width="650">
 
                             <!--search-->
-                            <StackPanel DockPanel.Dock="Top" Width="auto" Height="auto" Margin="0,0,0,0">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <StackPanel DockPanel.Dock="Top" Width="auto" Height="auto" Margin="0">
+                                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
                                     <TextBlock Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Text="KonTra" FontSize="50"/>
-                                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="20" HorizontalAlignment="Center" Height="30" Foreground="#65ffa0" Width="30" Kind="Virus" />
+                                    <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Foreground="#65ffa0" Width="30" Kind="Virus" />
                                 </StackPanel>
 
                                 <!--BUG-->
